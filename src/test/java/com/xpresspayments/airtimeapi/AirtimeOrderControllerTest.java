@@ -1,12 +1,5 @@
 package com.xpresspayments.airtimeapi;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-
 import com.google.gson.Gson;
 import com.xpresspayments.airtimeapi.controller.AirtimeOrderController;
 import com.xpresspayments.airtimeapi.exceptions.ApiException;
@@ -27,6 +20,14 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(AirtimeOrderController.class)
 class AirtimeOrderControllerTest {
@@ -57,7 +58,6 @@ class AirtimeOrderControllerTest {
 
     @Test
     void testBuyAirtime_Success() throws Exception {
-
         Gson gson = new Gson();
         String jsonStringResponse = gson.toJson(request);
 
