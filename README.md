@@ -23,22 +23,22 @@ Authentication
 POST /api/v1/auth/register
 Request Body:
 json
-
+```
 {
     "firstName": "yourFirstName",
     "lastName": "yourLastName",
     "username": "yourUsername",
     "password": "yourPassword"
 }
-
+```
 Response:
 json
-
+```
 {
    "message": "message",
     "username": "yourUserName"
 }
-
+```
 2. Login And Get Token:
 
 POST /api/v1/auth/login
