@@ -15,8 +15,85 @@ This project implements an API for user authentication using JWT and consumes th
 
 3. **Unit Testing**:
    - Unit tests implemented with at least 50% code coverage.
+  
+ ##  API Endpoints
+Authentication
+1. **Register a User**:
 
-## Setup Instructions
+POST /api/v1/auth/register
+Request Body:
+json
+
+{
+    "firstName": "yourFirstName",
+    "lastName": "yourLastName",
+    "username": "yourUsername",
+    "password": "yourPassword"
+}
+
+Response:
+json
+
+{
+   "message": "message",
+    "username": "yourUserName"
+}
+
+2. Login And Get Token:
+
+POST /api/v1/auth/login
+Request Body:
+json
+
+{
+    "username": "yourUsername",
+    "password": "yourPassword"
+}
+
+Response:
+json
+
+{
+   "message": "message",
+    "token": "jwt_token"
+}
+
+3. Airtime Purchase
+Purchase Airtime:
+POST /api/v1/buyAirtime
+Request Body:
+json
+{
+    "requestId": "12362",
+    "uniqueCode": "MTN_19399",
+    "details": {
+        "phoneNumber": "09132058051",
+        "amount": 100
+    }
+}
+
+This project includes unit tests for the controllers in the application, ensuring the functionality of the APIs and correct handling of errors.
+
+### Controller Unit Tests
+
+We have implemented unit tests for the following controllers:
+
+- **AirtimeOrderController**: Tests for airtime purchase requests.
+
+### Tools Used for Unit Testing
+
+- **JUnit 5**: Framework for unit testing in Java.
+- **Mockito**: Mocking framework used to simulate dependencies in the unit tests.
+- **MockMvc**: Used for testing without needing to start the full HTTP server.
+- **Gson**: Used to serialize and deserialize Java objects in JSON format.
+
+### How to Run Unit Tests
+
+To run the unit tests, use the following command in your project root directory:
+
+```bash
+./mvnw test
+
 
 ### Prerequisites
 
