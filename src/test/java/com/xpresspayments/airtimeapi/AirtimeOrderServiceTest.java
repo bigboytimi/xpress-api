@@ -41,7 +41,7 @@ class AirtimeOrderServiceTest {
     }
 
     @Test
-    void testPurchaseAirtime_ValidPhoneNumber_Success() {
+    void testPurchaseAirtimeValidPhoneNumberSuccess() {
 
         Gson gson = new Gson();
         AirtimePurchaseRequest request = new AirtimePurchaseRequest();
@@ -64,7 +64,7 @@ class AirtimeOrderServiceTest {
     }
 
     @Test
-    void testPurchaseAirtime_InvalidPhoneNumber() {
+    void testPurchaseAirtimeInvalidPhoneNumber() {
         AirtimeDetails details = new AirtimeDetails();
         details.setPhoneNumber("2979-863-5283528632838");
         details.setAmount(BigDecimal.valueOf(100));

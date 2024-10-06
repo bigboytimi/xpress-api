@@ -57,7 +57,7 @@ class AirtimeOrderControllerTest {
     }
 
     @Test
-    void testBuyAirtime_Success() throws Exception {
+    void testBuyAirtimeSuccess() throws Exception {
         Gson gson = new Gson();
         String jsonStringResponse = gson.toJson(request);
 
@@ -79,7 +79,7 @@ class AirtimeOrderControllerTest {
     }
 
     @Test
-    void testBuyAirtime_Failure() throws Exception {
+    void testBuyAirtimeFailure() throws Exception {
         Gson gson = new Gson();
         String jsonStringResponse = gson.toJson(request);
 
