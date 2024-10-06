@@ -4,6 +4,19 @@
 
 This project implements an API for user authentication using JWT and consumes the Airtime VTU API. The application includes functionality for user registration, login, and airtime purchases.
 
+### Prerequisites
+
+- Java 8 or higher
+- Maven
+- MySQL database (or H2 for in-memory testing)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone  https://github.com/bigboytimi/xpress-api.git
+   cd xpress-api
+
 ## Features
 
 1. **User Authentication**: 
@@ -43,25 +56,26 @@ json
 POST /api/v1/auth/login
 Request Body:
 json
-
+```
 {
     "username": "yourUsername",
     "password": "yourPassword"
 }
-
+```
 Response:
 json
-
+```
 {
    "message": "message",
     "token": "jwt_token"
 }
-
+```
 3. Airtime Purchase
 Purchase Airtime:
 POST /api/v1/buyAirtime
 Request Body:
 json
+```
 {
     "requestId": "12362",
     "uniqueCode": "MTN_19399",
@@ -70,7 +84,7 @@ json
         "amount": 100
     }
 }
-
+```
 This project includes unit tests for the controllers in the application, ensuring the functionality of the APIs and correct handling of errors.
 
 ### Controller Unit Tests
@@ -92,17 +106,4 @@ To run the unit tests, use the following command in your project root directory:
 
 ```bash
 ./mvnw test
-
-
-### Prerequisites
-
-- Java 8 or higher
-- Maven
-- MySQL database (or H2 for in-memory testing)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone  https://github.com/bigboytimi/xpress-api.git
-   cd xpress-api
+```
