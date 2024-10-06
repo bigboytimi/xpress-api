@@ -19,11 +19,10 @@ This project implements an API for user authentication using JWT and consumes th
  ##  API Endpoints
 Authentication
 1. **Register a User**:
-
+```
 POST /api/v1/auth/register
 Request Body:
 json
-```
 {
     "firstName": "yourFirstName",
     "lastName": "yourLastName",
