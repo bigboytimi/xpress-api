@@ -32,10 +32,11 @@ This project implements an API for user authentication using JWT and consumes th
  ##  API Endpoints
 Authentication
 1. **Register a User**:
-```
+
 POST /api/v1/auth/register
 Request Body:
 json
+```
 {
     "firstName": "yourFirstName",
     "lastName": "yourLastName",
@@ -83,6 +84,17 @@ json
         "phoneNumber": "09132058051",
         "amount": 100
     }
+}
+```
+
+Response
+```
+{
+    "requestId": "0012349210",
+    "referenceId": "MATT14539722120213053702634214",
+    "responseCode": "00",
+    "responseMessage": "Successful",
+    "data": null
 }
 ```
 This project includes unit tests for the controllers in the application, ensuring the functionality of the APIs and correct handling of errors.
