@@ -4,8 +4,8 @@ import com.xpresspayments.airtimeapi.exceptions.ApiException;
 import com.xpresspayments.airtimeapi.models.request.AirtimePurchaseRequest;
 import com.xpresspayments.airtimeapi.models.response.AirtimePurchaseResponse;
 import com.xpresspayments.airtimeapi.service.AirtimeOrderService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.Response;
@@ -26,12 +26,12 @@ import javax.validation.Valid;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
-@Api(tags = "Airtime Operations")
+@Tag(name = "Airtime Order Controller", description = "Airtime Operations")
 public class AirtimeOrderController {
     private AirtimeOrderService airtimeOrderService;
 
     @PostMapping("/buyAirtime")
-    @ApiOperation(value = "Purchase Airtime", notes = "Allows a user to purchase airtime using the provided details.")
+    @Operation(summary = "Purchase Airtime", description = "Allows a user to purchase airtime using the provided details.")
     public ResponseEntity<AirtimePurchaseResponse> buyAirtime(@RequestBody @Valid AirtimePurchaseRequest request){
         try {
             return airtimeOrderService.purchaseAirtime(request);

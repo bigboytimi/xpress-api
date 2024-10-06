@@ -6,8 +6,8 @@ import com.xpresspayments.airtimeapi.models.request.TokenRequest;
 import com.xpresspayments.airtimeapi.models.response.CreateUserResponse;
 import com.xpresspayments.airtimeapi.models.response.TokenResponse;
 import com.xpresspayments.airtimeapi.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.Response;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ import javax.validation.Valid;
 @RestController
 @Slf4j
 @RequestMapping("/api/v1/auth")
-@Api(value = "User Authentication API")
+@Tag(name = "Auth Controller", description = "User Authentication API")
 public class AuthController {
 
     private final UserService userService;
@@ -37,7 +37,7 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    @ApiOperation(value = "Register a new user")
+    @Operation(summary = "Register a new user")
     public ResponseEntity<CreateUserResponse> registerUser(@RequestBody @Valid CreateUserRequest request){
         try {
             return userService.registerUser(request);
@@ -48,7 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    @ApiOperation(value = "Login User And Retrieve Token")
+    @Operation(summary = "Login User And Retrieve Token")
     public ResponseEntity<TokenResponse> loginAndGetToken(@RequestBody @Valid TokenRequest request){
         try {
             return userService.validateAndReturnToken(request);
