@@ -10,6 +10,10 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 public class BeanConfig {
+    /**
+     * create a rest template bean for calling external apis
+     * @return RestTemplate instance
+     */
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();

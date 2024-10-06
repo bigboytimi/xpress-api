@@ -22,16 +22,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
+    /**
+     * JwtRequestFilter filters every request to the application
+     */
     private final JwtRequestFilter jwtRequestFilter;
 
     public SecurityConfig(JwtRequestFilter jwtRequestFilter) {
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
+    /**
+     * Password encoder bean to hash all passwords before saving
+     * @return BcryptPasswordEncoder
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -51,6 +60,11 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 
+    /**
+     *
+     * @param http httpsecurity
+     * @return SecurityFilterChain filterChain
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
