@@ -10,7 +10,9 @@ import lombok.Data;
 @Data
 @Builder
 public class AirtimePurchaseResponse {
-    private String description;
-    private String orderId;
-    private String responseReference;
+    private String requestId;
+    private String referenceId;
+    private String responseCode;
+    private String responseMessage;
+    private String data;
 }
