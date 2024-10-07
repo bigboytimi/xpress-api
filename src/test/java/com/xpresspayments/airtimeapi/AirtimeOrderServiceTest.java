@@ -6,7 +6,7 @@ import com.xpresspayments.airtimeapi.models.request.AirtimePurchaseRequest;
 import com.xpresspayments.airtimeapi.models.response.AirtimePurchaseResponse;
 import com.xpresspayments.airtimeapi.repository.AirtimeOrderRepository;
 import com.xpresspayments.airtimeapi.service.AirtimeOrderService;
-import com.xpresspayments.airtimeapi.service.ApiService;
+import com.xpresspayments.airtimeapi.service.ApiServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -33,7 +33,7 @@ class AirtimeOrderServiceTest {
     private AirtimeOrderRepository airtimeOrderRepository;
 
     @Mock
-    private ApiService apiService;
+    private ApiServiceImpl apiServiceImpl;
 
     @BeforeEach
     public void setup() {
@@ -53,7 +53,7 @@ class AirtimeOrderServiceTest {
                 .data(null));
 
         String billerApiUrl = "https://billerstest.xpresspayments.com:9610/airtime/fulfil";
-        when(apiService.postRequest(billerApiUrl, request)).thenReturn(ResponseEntity.ok(jsonString));
+        when(apiServiceImpl.postRequest(billerApiUrl, request)).thenReturn(ResponseEntity.ok(jsonString));
 
         ResponseEntity<AirtimePurchaseResponse> response = airtimeOrderService.purchaseAirtime(request);
 

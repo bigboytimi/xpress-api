@@ -30,12 +30,19 @@ import javax.validation.Valid;
 public class AirtimeOrderController {
     private AirtimeOrderService airtimeOrderService;
 
+    /**
+     * api to purchase airtime
+     * @param request contains amount, phone number, requestId and unique code
+     * @return response contains response code, response message, request id and reference and data from external api
+     */
     @PostMapping("/buyAirtime")
     @Operation(summary = "Purchase Airtime", description = "Allows a user to purchase airtime using the provided details.")
     public ResponseEntity<AirtimePurchaseResponse> buyAirtime(@RequestBody @Valid AirtimePurchaseRequest request){
         try {
+            //send request to service layer
             return airtimeOrderService.purchaseAirtime(request);
         }catch (Exception e){
+            //throw custom exception in case an exception occurs
             throw new ApiException(Response.SC_INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }

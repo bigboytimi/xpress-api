@@ -40,8 +40,10 @@ public class AuthController {
     @Operation(summary = "Register a new user")
     public ResponseEntity<CreateUserResponse> registerUser(@RequestBody @Valid CreateUserRequest request){
         try {
+            //register service
             return userService.registerUser(request);
         }catch (Exception e){
+            //throw custom exception in case an exception occurs
             throw new ApiException(Response.SC_INTERNAL_SERVER_ERROR, e.getMessage());
         }
 
@@ -51,8 +53,10 @@ public class AuthController {
     @Operation(summary = "Login User And Retrieve Token")
     public ResponseEntity<TokenResponse> loginAndGetToken(@RequestBody @Valid TokenRequest request){
         try {
+            //login user to get jwt token
             return userService.validateAndReturnToken(request);
         }catch (Exception e){
+            //throw custom exception in case an exception occurs
             throw new ApiException(Response.SC_INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }

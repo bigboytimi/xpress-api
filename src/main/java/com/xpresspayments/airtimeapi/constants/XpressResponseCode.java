@@ -6,6 +6,9 @@ package com.xpresspayments.airtimeapi.constants;
  */
 public class XpressResponseCode {
 
+    /**
+     * response code to be stored as transaction status
+     */
     public static final String SUCCESS_CODE = "00";
     public static final String SUCCESS = "SUCCESS";
     public static final String FAILED = "FAILED";
